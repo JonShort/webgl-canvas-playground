@@ -69,11 +69,9 @@ const drawScene = (
   }
 
   // Tell WebGL to use our program when drawing
-
   ctx.useProgram(programInfo.program);
 
   // Set the shader uniforms
-
   ctx.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
     false,
@@ -87,8 +85,8 @@ const drawScene = (
 
   {
     const offset = 0;
-    const vertexCount = 4;
-    ctx.drawArrays(ctx.TRIANGLE_STRIP, offset, vertexCount);
+    const vertexCount = programInfo.vertexInfo.vertexCount;
+    ctx.drawArrays(ctx.TRIANGLES, offset, vertexCount);
   }
 };
 
